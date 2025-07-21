@@ -23,6 +23,7 @@ const Login = () => {
       email.current.value,
       password.current.value,
       // name.current.value
+      
     );
     // Handle the form submission logic here
     console.log(message);
