@@ -10,6 +10,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { avatar_URL, netflix_bg } from "../utils/constant";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -42,17 +43,17 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log("User signed up:", user);
+          // console.log("User signed up:", user);
           updateProfile(user, {
             displayName: name.current?.value,
-            photoURL: "https://media.licdn.com/dms/image/v2/C4D03AQH-zdNTZLkKAA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1657440715124?e=1756339200&v=beta&t=GiGhjC0MaL2slP6f_Oqp9ZILL7JbAQn4kh70DCnQ9k4",
+            photoURL: avatar_URL,
           })
             .then(() => {
               // Profile updated!
                
               const {uid, email, displayName, photoURL} = auth.currentUser;
                dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}));
-              navigate("/browse")
+            
             })
             .catch((error) => {
               // An error occurred
@@ -71,9 +72,9 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log("User signed in:", user);
+          // console.log("User signed in:", user);
           // if user sign in navigate it to browse page..
-          navigate("/browse");
+          // navigate("/browse");
         })
         .catch((error) => {
           setErrorMessage(error.code + " " + error.message);
@@ -91,7 +92,7 @@ const Login = () => {
       <div className="absolute">
         <img
           className="w-full h-full"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/a927b1ee-784d-494a-aa80-cf7a062d2523/web/IN-en-20250714-TRIFECTA-perspective_5acb7337-c372-45ec-ae12-ddb110e6ad78_large.jpg"
+          src= {netflix_bg}
           alt="background"
         />
       </div>

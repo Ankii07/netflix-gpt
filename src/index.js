@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // StrictMode is used to highlight potential problems in an application.
+  // It activates additional checks and warnings for its descendants.
+  // It does not render any visible UI.
   <React.StrictMode>
     <App />
   </React.StrictMode>
