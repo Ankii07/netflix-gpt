@@ -28,3 +28,5 @@ export const SUPPORTED_LANGUAGES = [
     name: "Bengali",
   },
 ];
+
+export const OPENAI_API_KEY ="tgp_v1_xUA7afKawwJQxrpS4d6TvgbJPi9SUPrNmVZcgqjjo9I";
