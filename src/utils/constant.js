@@ -30,3 +30,7 @@ export const SUPPORTED_LANGUAGES = [
 ];
 
 export const OPENAI_API_KEY ="tgp_v1_xUA7afKawwJQxrpS4d6TvgbJPi9SUPrNmVZcgqjjo9I";
+
+export const Together_API = "https://api.together.xyz/v1/chat/completions";
+
+export const Together_Api_Key = "tgp_v1_xUA7afKawwJQxrpS4d6TvgbJPi9SUPrNmVZcgqjjo9I";

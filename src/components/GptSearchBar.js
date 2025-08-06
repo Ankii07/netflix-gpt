@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { API_OPTIONS } from "../utils/constant";
+import { API_OPTIONS, Together_API, Together_Api_Key } from "../utils/constant";
 import language from "../utils/languageConstants";
 import { useSelector } from "react-redux";
 import SearchResult from "./SearchResult";
@@ -52,12 +52,12 @@ const GptSearchBar = () => {
 
     // ⚠️ INSECURE! Exposes your API key in browser network requests.
     const response = await fetch(
-      "https://api.together.xyz/v1/chat/completions",
+      Together_API,
       {
         method: "POST",
         headers: {
           Authorization:
-            "Bearer tgp_v1_xUA7afKawwJQxrpS4d6TvgbJPi9SUPrNmVZcgqjjo9I", // Visible in DevTools > Network
+            `Bearer ${Together_Api_Key}`, // Visible in DevTools > Network
           "Content-Type": "application/json",
         },
         body: JSON.stringify({

@@ -6,7 +6,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { toggleGptSearchView } from "../utils/gptSlice";
+import { setShowGptSearch, toggleGptSearchView } from "../utils/gptSlice";
 import { SUPPORTED_LANGUAGES } from "../utils/constant";
 import { changeLanguage } from "../utils/ConfigSlice";
 
@@ -61,13 +61,16 @@ const Header = () => {
     // console.log(e.target.value);
     dispatch(changeLanguage(e.target.value));
   }
-  
+ 
+  const handleLogoClick = () =>{
+       dispatch(setShowGptSearch())
+  }
   
 
   return (
     <>
     <div className="absolute w-screen p-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between ">
-        <img className="w-44" src={myImage} alt="Logo_img"></img>
+        <img className="w-44" src={myImage} alt="Logo_img" onClick={handleLogoClick}></img>
          { user ?  (<div className="flex ">
           <img className="w-14 h-14 rounded-md mt-2 mr-8 " alt="userIcon" src={user?.photoURL}></img>
            {showGptSearch && <select className="bg-red-600 min-w-20 h-14 mt-2 mr-8 font-serif text-white px-4 py-2 rounded-md" onChange={handleLanguageChange}>
